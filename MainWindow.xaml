@@ -1,0 +1,40 @@
+﻿<Window x:Class="ToggleDesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToggleDesign"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <ToggleButton Foreground="White" x:Name="btnToggleOn" 
+                      Width="150" Height="60" FontSize="18">
+            <ToggleButton.Template>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="B1" Background="LightGray" Padding="1"
+                            BorderBrush="Black" CornerRadius="30">
+                        <Border x:Name="B2" Background="White"
+                                    Width="{TemplateBinding Height}"
+                                CornerRadius="30" HorizontalAlignment="Left">
+                            <TextBlock Text="OFF"
+                                       x:Name="T1"
+                                       Foreground="Black"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
+                            
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="B2" Property="HorizontalAlignment" Value="Right"/>
+                            <Setter TargetName="B1" Property="Background" Value="#FFF45312"/>
+                            <Setter TargetName="T1" Property="TextBlock.Text" Value="ON"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </ToggleButton.Template>
+        </ToggleButton>
+
+    </Grid>
+</Window>
